@@ -1,4 +1,4 @@
-FROM python:3.12-alpine3.14
+FROM python:3.12-alpine
 
 # Встановлюємо curl для завантаження ключів Microsoft
 RUN apk add --no-cache curl
@@ -8,7 +8,7 @@ RUN apk add --no-cache build-base gcc musl-dev libffi-dev openssl-dev python3-de
 
 # Встановлюємо ODBC драйвер для MSSQL
 RUN curl -o /etc/apk/keys/microsoft.asc https://packages.microsoft.com/keys/microsoft.asc && \
-    echo "https://packages.microsoft.com/alpine/3.14/prod" >> /etc/apk/repositories && \
+    echo "https://packages.microsoft.com/alpine/v3.14/prod" >> /etc/apk/repositories && \
     apk update && \
     ACCEPT_EULA=Y apk add --no-cache msodbcsql18
 
