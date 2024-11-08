@@ -1,5 +1,8 @@
 FROM python:3-alpine
 
+# Встановлюємо curl, необхідний для завантаження ключів Microsoft
+RUN apk add --no-cache curl
+
 # Встановлюємо необхідні залежності для компіляції Python пакетів
 RUN apk add --no-cache build-base gcc musl-dev libffi-dev openssl-dev python3-dev unixodbc-dev
 
