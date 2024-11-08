@@ -1,6 +1,6 @@
-FROM python:3-alpine
+FROM python:3.12-alpine3.14
 
-# Встановлюємо curl, необхідний для завантаження ключів Microsoft
+# Встановлюємо curl для завантаження ключів Microsoft
 RUN apk add --no-cache curl
 
 # Встановлюємо необхідні залежності для компіляції Python пакетів
