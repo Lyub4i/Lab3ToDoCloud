@@ -6,8 +6,9 @@ BASEDIR = os.path.abspath(os.path.dirname(__file__))
 def create_sqlite_uri(db_name):
     return "sqlite:///" + os.path.join(BASEDIR, db_name)
 
-def create_mssql_uri(username, password, server, port, database):
-    return f"mssql+pyodbc://{username}:{password}@{server}:{port}/{database}?driver=ODBC+Driver+18+for+SQL+Server"
+def create_mysql_uri(username, password, server, port, database):
+    return f"mysql+pymysql://{username}:{password}@{server}:{port}/{database}"
+
 
 
 
@@ -38,8 +39,7 @@ class TestingConfig(Config):
 
 
 class ProductionConfig(Config):
-    # Використання MSSQL у Production
-    SQLALCHEMY_DATABASE_URI = create_mssql_uri("admin", "admin1234", "database-1.cvg2a0y6kojy.us-east-1.rds.amazonaws.com", "Lab3Cloud")
+    SQLALCHEMY_DATABASE_URI = create_mysql_uri("admin", "admin1234", "database-2.cvg2a0y6kojy.us-east-1.rds.amazonaws.com", "3306", "Lab3TestCloud")
 
 
 config = {
