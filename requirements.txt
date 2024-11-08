@@ -63,3 +63,4 @@ werkzeug==3.1.1
     #   flask-login
 wtforms==3.2.1
     # via flask-wtf
+pymysql==1.1.0
